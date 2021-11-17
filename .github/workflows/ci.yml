@@ -24,7 +24,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - name: Docker build
-    - run: |
+      run: |    
         docker login -u ${{ secrets.USERNAME }} -p ${{ secrets.PASSWORD }}
         docker build -t auction-frontend .
         docker tag auction-frontend eastshine/auction-frontend:${GITHUB_SHA::7}
